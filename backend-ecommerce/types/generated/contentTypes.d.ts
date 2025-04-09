@@ -466,7 +466,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         'Indonesia',
         'Guatemala',
         'Italia',
-        'Estados Unidos',
+        'U.S.A',
         'Australia/Nueva Zelanda',
         'Irlanda',
         'Espa\u00F1a',
