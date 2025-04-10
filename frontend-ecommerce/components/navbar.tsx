@@ -11,8 +11,8 @@ export const Navbar = () => {
   return (
     <div className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
       <h1 className="text-3xl" onClick={() => router.push("./")}>
-        MatPerNau
-        <span className="font-bold">Dev</span>
+        Coffe
+        <span className="font-bold">Dream</span>
       </h1>
 
       {/* menu desktop */}

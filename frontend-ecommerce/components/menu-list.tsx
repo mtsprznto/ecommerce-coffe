@@ -29,7 +29,7 @@ const MenuList = () => {
                     href="/"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      MatPerNau
+                      CoffeDream
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       Bienvenido a un mundo de café exclusivo y experiencia

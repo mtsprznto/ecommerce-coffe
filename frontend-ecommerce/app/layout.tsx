@@ -11,7 +11,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "LLLIT | E-Commerce",
+  title: "CoffeDream | CoffeShop",
   description: "Bienvenidos a mi E-Commerce por Matias Perez",
 };
 
