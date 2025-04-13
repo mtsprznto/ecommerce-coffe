@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
+import { CartItem } from "./components/cart-item";
 
 export default function Page() {
   const { items, removeAll } = useCart();
@@ -19,7 +20,9 @@ export default function Page() {
           {items.length == 0 && <p>No hay productos en el carrito</p>}
           <ul>
             {items.map((item) => (
-              <p key={item.id}>{item.productName}</p>
+              <CartItem key={item.id} product={item}>
+
+              </CartItem>
             ))}
           </ul>
         </div>
@@ -28,7 +31,7 @@ export default function Page() {
             <p className="mb-3 text-lg font-semibold">Order summary</p>
             <Separator className=""></Separator>
             <div className="flex justify-between gap-5 my-4">
-              <p>Order total</p>
+              <p>Precio Total</p>
               <p>{formatPrice(totalPrice)}</p>
             </div>
             <div className="flex items-center justify-center w-full mt-3">
