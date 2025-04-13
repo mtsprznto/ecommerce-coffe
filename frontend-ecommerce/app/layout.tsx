@@ -3,7 +3,7 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const urbanist = Urbanist({
@@ -31,6 +31,7 @@ export default function RootLayout({
         >
           <Navbar></Navbar>
           {children}
+          <Toaster></Toaster>
           <Footer></Footer>
         </ThemeProvider>
       </body>
