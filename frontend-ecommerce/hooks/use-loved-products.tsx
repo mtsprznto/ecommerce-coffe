@@ -33,7 +33,7 @@ export const useLovedProducts = create(
       removeLovedItem: (id: number) => {
         set({ lovedItems: [...get().lovedItems.filter((item) => item.id !== id)] });
         // Mostrar un mensaje de éxito
-        toast("Producto eliminado del carrito 📡");
+        toast("Producto eliminado 📡");
       },
 
     }),

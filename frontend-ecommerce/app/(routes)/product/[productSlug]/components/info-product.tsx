@@ -1,3 +1,4 @@
+import { ProductTasteOrigin } from "@/components/shared/product-taste-origin";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/use-cart";
@@ -24,14 +25,7 @@ export const InfoProduct = (props: InfoProductsProps) => {
     <div className="px-6">
       <div className="justify-between mb-3 sm:flex">
         <h1 className="text-2xl py-4">{product.productName}</h1>
-        <div className="flex items-center justify-between gap-3">
-          <p className="px-2 py-1 text-xs text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-            {product.taste}
-          </p>
-          <p className="px-2 py-1 text-xs text-white bg-yellow-900 rounded-full dark:bg-yellow-900 dark:text-white w-fit">
-            {product.origin}
-          </p>
-        </div>
+        <ProductTasteOrigin product={product}></ProductTasteOrigin>
       </div>
       <Separator className="my-4"></Separator>
       <p>{product.description}</p>

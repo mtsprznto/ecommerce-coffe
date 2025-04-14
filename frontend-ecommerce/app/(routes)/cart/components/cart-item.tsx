@@ -1,3 +1,4 @@
+import { ProductTasteOrigin } from "@/components/shared/product-taste-origin";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
 import { cn } from "@/lib/utils";
@@ -33,14 +34,8 @@ export const CartItem = (props: CartItemProps) => {
         <div>
           <h2 className="text-lg font-bold">{product.productName}</h2>
           <p className="font-bold">{formatPrice(product.price)}</p>
-          <div className="flex items-center justify-between gap-3">
-            <p className="px-2 py-1 text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-              {product.taste}
-            </p>
-            <p className="px-2 py-1 text-white bg-yellow-900 rounded-full dark:bg-yellow-600 dark:text-white w-fit">
-              {product.origin}
-            </p>
-          </div>
+          
+          <ProductTasteOrigin product={product}></ProductTasteOrigin>
         </div>
         <div>
           <button
