@@ -5,7 +5,10 @@ export default ({ env }) => {
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'), // Usa la conexión directa de Railway
-        ssl: env.bool('DATABASE_SSL', true) && { rejectUnauthorized: false }, // Railway requiere SSL
+        ssl: env.bool('DATABASE_SSL', true) && {
+          rejectUnauthorized: false, // Acepta certificados auto-firmados
+        },
+
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
