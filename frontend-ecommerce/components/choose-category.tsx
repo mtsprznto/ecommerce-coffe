@@ -3,6 +3,7 @@
 import { useGetCategories } from "@/api/getProducts";
 import { CategoryType } from "@/types/category";
 import { ResponseType } from "@/types/response";
+import Image from "next/image";
 import Link from "next/link";
 
 export const ChooseCategory = () => {
@@ -23,12 +24,16 @@ export const ChooseCategory = () => {
               href={`/category/${category.slug}`}
               className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
             >
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`}
                 alt={category.categoryName}
                 className="max-w-[270px] transition duration-300 ease-in-out rounded-lg hover:scale-110"
-              ></img>
-              <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">{category.categoryName}</p>
+                width={300}
+                height={300}
+              ></Image>
+              <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">
+                {category.categoryName}
+              </p>
             </Link>
           ))}
       </div>

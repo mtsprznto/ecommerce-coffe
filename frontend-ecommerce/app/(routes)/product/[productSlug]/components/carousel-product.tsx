@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface CarouselProductProps {
   images: {
@@ -23,10 +24,12 @@ export const CarouselProduct = (props: CarouselProductProps) => {
         <CarouselContent>
           {images.map((image) => (
             <CarouselItem key={image.id}>
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                 alt={`Image ${image.id}`}
-              />
+                width={96}
+                height={96}
+              ></Image>
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -1,4 +1,5 @@
 import { ProductType } from "@/types/productos";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface ProductImageMiniatureProps {
@@ -11,10 +12,12 @@ export const ProductImageMiniature = (props: ProductImageMiniatureProps) => {
   return (
     <div onClick={() => router.push(`/product/${product.slug}`)}>
       {product.images && product.images.length > 0 && (
-        <img
+        <Image
           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
           alt="Producto"
-          className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
+          className="overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
+          width={100}
+          height={100}
         />
       )}
     </div>

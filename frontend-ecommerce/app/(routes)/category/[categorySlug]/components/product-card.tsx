@@ -7,6 +7,7 @@ import {
 import { formatPrice } from "@/lib/formatPrice";
 import { ProductType } from "@/types/productos";
 import { Expand, ShoppingCart } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -15,7 +16,7 @@ type ProductCardProps = {
 };
 export const ProductoCard = (props: ProductCardProps) => {
   const { product } = props;
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Link
       href={`/product/${product.slug}`}
@@ -38,11 +39,13 @@ export const ProductoCard = (props: ProductCardProps) => {
         <CarouselContent>
           {product.images?.map((image) => (
             <CarouselItem key={image.id} className="group">
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                 alt={"images"}
                 className="rounded-xl"
-              />
+                width={400}
+                height={400}
+              ></Image>
               <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                 <div className="flex justify-center gap-x-6">
                   <IconButton
@@ -50,7 +53,12 @@ export const ProductoCard = (props: ProductCardProps) => {
                     onClick={() => router.push(`/product/${product.slug}`)}
                   ></IconButton>
                   <IconButton
-                    icon={<ShoppingCart size={20} className="text-gray-600"></ShoppingCart>}
+                    icon={
+                      <ShoppingCart
+                        size={20}
+                        className="text-gray-600"
+                      ></ShoppingCart>
+                    }
                     onClick={() => console.log("Hola")}
                   ></IconButton>
                 </div>
