@@ -9,3 +9,13 @@
 
 #### Productos
 <img src="./img/products.png" />
+
+
+#### Frontend
+https://vercel.com/
+
+#### Backend
+https://render.com/
+
+#### Base de datos
+https://railway.com/
