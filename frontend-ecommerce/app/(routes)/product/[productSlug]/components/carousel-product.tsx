@@ -27,8 +27,8 @@ export const CarouselProduct = (props: CarouselProductProps) => {
               <Image
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                 alt={`Image ${image.id}`}
-                width={96}
-                height={96}
+                width={400}
+                height={400}
               ></Image>
             </CarouselItem>
           ))}

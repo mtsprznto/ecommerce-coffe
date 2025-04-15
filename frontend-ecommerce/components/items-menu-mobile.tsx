@@ -11,7 +11,7 @@ export const ItemsMenuMobile = () => {
       </PopoverTrigger>
       <PopoverContent>
         {components.map((component) => (
-          <Link href={component.href} className="block">
+          <Link href={component.href} className="block" key={component.title}>
             {component.title}
           </Link>
         ))}
