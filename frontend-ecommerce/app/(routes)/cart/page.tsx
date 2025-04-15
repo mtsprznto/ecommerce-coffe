@@ -38,7 +38,7 @@ export default function Page() {
         sessionId: res.data.stripeSession.id
       })
 
-
+      removeAll()
 
 
     } catch (error) {
