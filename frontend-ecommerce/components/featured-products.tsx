@@ -32,7 +32,7 @@ export const FeaturedProducts = () => {
 
           {result !== null &&
             result.map((product: ProductType) => {
-              const { id, productName, slug, images, category, taste, origin } =
+              const { id, productName, slug, images, taste, origin } =
                 product;
 
               const imageUrl =

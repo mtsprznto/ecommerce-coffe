@@ -5,7 +5,7 @@ import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
 import { formatPrice } from "@/lib/formatPrice";
 import { ProductType } from "@/types/productos";
-import { Heart, HeartIcon } from "lucide-react";
+import { HeartIcon } from "lucide-react";
 
 export type InfoProductsProps = {
   product: ProductType;

@@ -3,7 +3,7 @@
 import { useGetCategoryProduct } from "@/api/getCategoryProduct";
 import { Separator } from "@/components/ui/separator";
 import { ResponseType } from "@/types/response";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { FiltersControlsCategory } from "./components/filters-controls-category";
 import { SkeletonSchema } from "@/components/skeletonSchema";
 import { ProductoCard } from "./components/product-card";
@@ -17,7 +17,6 @@ export default function Page() {
     `${categorySlug}`
   );
 
-  const router = useRouter();
 
   const [filterOrigin, setFilterOrigin] = useState("");
   const [filterTaste, setFilterTaste] = useState("");
@@ -32,7 +31,7 @@ export default function Page() {
             product.origin === filterOrigin && product.taste === filterTaste
         ));
 
-  console.log(filteredProducts);
+  //console.log(filteredProducts);
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">

@@ -24,13 +24,6 @@ export default function Page() {
     try {
       const stripe = await stripePromise;
 
-      const formattedProducts = items.map((product) => ({
-        id: product.id,
-        name: product.productName,
-        price: product.price,
-      }));
-      
-
       const res = await makePaymentRequest.post("/api/orders", {
         products: items
       })
