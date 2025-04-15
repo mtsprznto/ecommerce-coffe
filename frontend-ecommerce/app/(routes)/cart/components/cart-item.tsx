@@ -1,10 +1,10 @@
+import { ProductImageMiniature } from "@/components/shared/product-image-miniature";
 import { ProductTasteOrigin } from "@/components/shared/product-taste-origin";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/types/productos";
 import { X } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 interface CartItemProps {
   product: ProductType;
@@ -12,24 +12,13 @@ interface CartItemProps {
 
 export const CartItem = (props: CartItemProps) => {
   const { product } = props;
-  const router = useRouter();
 
   const { removeItem } = useCart();
   //console.log(product);
   return (
     <li className="flex py-6 border-b">
-      <div
-        onClick={() => router.push(`/product/${product.slug}`)}
-        className="cursor-pointer"
-      >
-        {product.images && product.images.length > 0 && (
-          <img
-            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
-            alt="Producto"
-            className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
-          />
-        )}
-      </div>
+      <ProductImageMiniature product={product}></ProductImageMiniature>
+      
       <div className="flex justify-between flex-1 px-6">
         <div>
           <h2 className="text-lg font-bold">{product.productName}</h2>

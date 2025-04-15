@@ -1,3 +1,4 @@
+import { ProductImageMiniature } from "@/components/shared/product-image-miniature";
 import { ProductTasteOrigin } from "@/components/shared/product-taste-origin";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
@@ -24,16 +25,9 @@ export const LoveItemProducto = (props: LovedItemProductProps) => {
   };
 
   return (
-    <li className="flex py-6 border-b">
-      <div onClick={() => router.push(`/product/${product.slug}`)}>
-        {product.images && product.images.length > 0 && (
-          <img
-            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
-            alt="Producto"
-            className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
-          />
-        )}
-      </div>
+    <li className="flex p-6 border-b">
+      <ProductImageMiniature product={product}></ProductImageMiniature>
+      
       <div className="flex justify-between flex-1 px-6">
         <div>
           <h2 className="text-lg font-bold">{product.productName}</h2>

@@ -5,12 +5,46 @@ import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
 import { CartItem } from "./components/cart-item";
+import { loadStripe } from "@stripe/stripe-js";
+import { makePaymentRequest } from "@/api/payment";
 
 export default function Page() {
   const { items, removeAll } = useCart();
 
   const prices = items.map((product) => product.price);
-  const totalPrice: number = prices.reduce((total, price) => total + price, 0);
+  const totalPrice = prices.reduce((total, price) => total + price, 0);
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+  );
+
+  
+  
+
+  const buyStripe = async () => {
+    try {
+      const stripe = await stripePromise;
+
+      const formattedProducts = items.map((product) => ({
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+      }));
+      
+
+      const res = await makePaymentRequest.post("/api/orders", {
+        products: items
+      })
+      await stripe?.redirectToCheckout({
+        sessionId: res.data.stripeSession.id
+      })
+
+
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="max-w-6xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
@@ -20,9 +54,7 @@ export default function Page() {
           {items.length == 0 && <p>No hay productos en el carrito</p>}
           <ul>
             {items.map((item) => (
-              <CartItem key={item.id} product={item}>
-
-              </CartItem>
+              <CartItem key={item.id} product={item}></CartItem>
             ))}
           </ul>
         </div>
@@ -34,10 +66,10 @@ export default function Page() {
               <p>Precio Total</p>
               <p>{formatPrice(totalPrice)}</p>
             </div>
-            <div className="flex items-center justify-center w-full mt-3">
+            <div className="flex items-center justify-center w-full mt-3 ">
               <Button
-                className="dark:bg-black dark:text-white w-full"
-                onClick={() => console.log("Comprando")}
+                className="dark:bg-black dark:text-white w-full cursor-pointer dark:hover:bg-emerald-950"
+                onClick={buyStripe}
               >
                 Comprar
               </Button>
