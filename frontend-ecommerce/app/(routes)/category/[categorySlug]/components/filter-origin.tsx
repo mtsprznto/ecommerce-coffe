@@ -11,7 +11,7 @@ export const FilterOrigin = (props: FilterOriginProps) => {
   const { setFilterOrigin } = props;
   const { result, loading }: FilterTypes = useGetProductoField();
 
-  //console.log(result);
+ 
 
   return (
     <div className="my-5">

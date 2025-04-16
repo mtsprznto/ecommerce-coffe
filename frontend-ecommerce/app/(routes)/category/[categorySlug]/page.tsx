@@ -15,7 +15,7 @@ import { readSync } from "fs";
 export default function Page() {
   const params = useParams();
 
-  console.log(params)
+  
 
   const { categorySlug } = params;
   
@@ -37,7 +37,7 @@ export default function Page() {
             product.origin === filterOrigin && product.taste === filterTaste
         ));
 
-  //console.log(filteredProducts);
+  
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24 p-6">

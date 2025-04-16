@@ -11,7 +11,7 @@ export const FilterTaste = (props: FilterTasteProps) => {
   const { setFilterTaste } = props;
   const { result, loading }: FilterTypes = useGetProductoField();
 
-  console.log(result);
+ 
 
   return (
     <div className="my-5">
