@@ -486,22 +486,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    origin: Schema.Attribute.Enumeration<
-      [
-        'Tailandia',
-        'Indonesia',
-        'Guatemala',
-        'Italia',
-        'U.S.A',
-        'Australia/Nueva Zelanda',
-        'Irlanda',
-        'Espa\u00F1a',
-        'Turqu\u00EDa',
-        'Vietnam',
-        'Francia',
-        'Portugal',
-      ]
-    >;
+    origin: Schema.Attribute.Enumeration<['Colombia', 'Bolivia']>;
     price: Schema.Attribute.Decimal;
     productName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;

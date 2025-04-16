@@ -42,18 +42,8 @@
     "origin": {
       "type": "enumeration",
       "enum": [
-        "Tailandia",
-        "Indonesia",
-        "Guatemala",
-        "Italia",
-        "U.S.A",
-        "Australia/Nueva Zelanda",
-        "Irlanda",
-        "España",
-        "Turquía",
-        "Vietnam",
-        "Francia",
-        "Portugal"
+        "Colombia",
+        "Bolivia"
       ]
     },
     "taste": {

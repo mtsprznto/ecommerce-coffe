@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { components } from "./categories-static";
 
 const MenuList = () => {
   return (
@@ -79,48 +80,6 @@ const MenuList = () => {
   );
 };
 
-export const components: {
-  title: string;
-  href: string;
-  description: string;
-}[] = [
-  {
-    title: "Cafés Creativos",
-    href: "/category/cafes-creativos",
-    description:
-      "Explora combinaciones únicas como el Irish Coffee y el Affogato, donde sabores tradicionales se mezclan con un toque de creatividad.",
-  },
-  {
-    title: "Cafés de Alto Octanaje",
-    href: "/category/cafes-de-alto-octanaje",
-    description:
-      "Para quienes necesitan un golpe de energía, con opciones como el Doppio o el Red Eye, ideales para enfrentar cualquier desafío.",
-  },
-  {
-    title: "Cafés Fríos",
-    href: "/category/cafes-frios",
-    description:
-      "Refresca tu día con opciones heladas como el Cold Brew o el Frappuccino, perfectos para climas cálidos.",
-  },
-  {
-    title: "Clásicos",
-    href: "/category/clasicos",
-    description:
-      "Saborea los favoritos atemporales como el Espresso y el Cappuccino, pilares de la cultura cafetera mundial.",
-  },
-  {
-    title: "Especialidades Dulces",
-    href: "/category/especialidades-dulces",
-    description:
-      "Deléitate con bebidas como el Mocha o el Vietnamese Coffee, que combinan el placer del café con un toque dulce.",
-  },
-  {
-    title: "Tradicionales Regionales",
-    href: "/category/tradicionales-regionales",
-    description:
-      "Descubre las raíces del café con opciones como el Turkish Coffee o el Cafe au Lait, representando tradiciones de diversas culturas.",
-  },
-];
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,

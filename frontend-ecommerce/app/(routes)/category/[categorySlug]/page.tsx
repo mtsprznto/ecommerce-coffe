@@ -9,10 +9,16 @@ import { SkeletonSchema } from "@/components/skeletonSchema";
 import { ProductoCard } from "./components/product-card";
 import { ProductType } from "@/types/productos";
 import { useState } from "react";
+import { components } from "@/components/categories-static";
+import { readSync } from "fs";
 
 export default function Page() {
   const params = useParams();
+
+  console.log(params)
+
   const { categorySlug } = params;
+  
   const { result, loading }: ResponseType = useGetCategoryProduct(
     `${categorySlug}`
   );
@@ -34,11 +40,17 @@ export default function Page() {
   //console.log(filteredProducts);
 
   return (
-    <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
+    <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24 p-6">
       {result !== null && !loading && (
         <h1 className="text-3xl font-medium">
           Cafe {result[0].category.categoryName}
         </h1>
+        
+      )}
+      {result !== null && !loading &&(
+        <p className="mb-2 mt-2">{components.map((component) =>(
+          component.description
+        ))}</p>
       )}
       <Separator></Separator>
       <div className="sm:flex sm:justify-between">

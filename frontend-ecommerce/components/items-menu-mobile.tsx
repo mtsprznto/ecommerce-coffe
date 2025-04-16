@@ -1,7 +1,7 @@
 import { Menu } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import Link from "next/link";
-import { components } from "./menu-list";
+import { components } from "./categories-static";
 
 export const ItemsMenuMobile = () => {
   return (

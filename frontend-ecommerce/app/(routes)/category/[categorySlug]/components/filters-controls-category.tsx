@@ -10,7 +10,7 @@ export const FiltersControlsCategory = (props: FilterControlsCategoryProps) => {
   const { setFilterOrigin, setFilterTaste } = props;
 
   return (
-    <div className="sm:w-[350px] sm:mt-5 p-6">
+    <div className="sm:w-[350px] sm:mt-5">
       <FilterOrigin setFilterOrigin={setFilterOrigin}></FilterOrigin>
       <FilterTaste setFilterTaste={setFilterTaste}></FilterTaste>
     </div>

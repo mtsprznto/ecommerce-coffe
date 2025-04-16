@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { ThemeProvider } from "@/components/theme-provider";
 import NextTopLoader from "nextjs-toploader";
 import { Navbar } from "@/components/navbar";
@@ -8,17 +8,12 @@ import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 
 export default function ThemeClientProvider({ children }: { children: React.ReactNode }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Detectar si el usuario prefiere modo oscuro
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDarkMode(prefersDark);
-  }, []);
+  const { theme } = useTheme(); // Obtiene el tema actual
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <div className={isDarkMode ? "dark" : ""} style={{ colorScheme: isDarkMode ? "dark" : "light" }}>
+      {/* Aplica el tema directamente en el div */}
+      <div className={`${theme === "dark" ? "dark" : "light"}`} style={{ colorScheme: theme }}>
         <NextTopLoader
           color="#2299DD"
           initialPosition={0.08}
