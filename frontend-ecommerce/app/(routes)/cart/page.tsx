@@ -17,6 +17,7 @@ export default function Page() {
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
   );
 
+  console.log(items);
   
   
 
@@ -27,6 +28,8 @@ export default function Page() {
       const res = await makePaymentRequest.post("/api/orders", {
         products: items
       })
+      
+      console.log(res)
       await stripe?.redirectToCheckout({
         sessionId: res.data.stripeSession.id
       })

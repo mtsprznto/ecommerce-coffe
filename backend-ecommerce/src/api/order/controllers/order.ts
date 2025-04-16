@@ -9,22 +9,24 @@ const {createCoreController} = require("@strapi/strapi").factories
 
 import { factories } from '@strapi/strapi'
 
+
+
 //export default factories.createCoreController('api::order.order');
 module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     async create(ctx) {
         //@ts-ignore
         const { products } = ctx.request.body;
-        //console.log(products);
-        
+        console.log(products)
         try {
+            
             const lineItems = await Promise.all(
-
+                
                 products.map(async (product) => {
-                    //console.log(product.id);
+                    
 
                     const item = await strapi.service("api::product.product").findOne(product.documentId, {});
 
-                    //console.log(`ITEMS ${item}`);
+                    console.log(`ITEMS ${item}`);
 
                     return {
                         price_data: {
