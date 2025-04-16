@@ -10,7 +10,6 @@ import { ProductoCard } from "./components/product-card";
 import { ProductType } from "@/types/productos";
 import { useState } from "react";
 import { components } from "@/components/categories-static";
-import { readSync } from "fs";
 
 export default function Page() {
   const params = useParams();
