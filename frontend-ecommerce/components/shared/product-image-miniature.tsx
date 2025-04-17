@@ -9,11 +9,14 @@ interface ProductImageMiniatureProps {
 export const ProductImageMiniature = (props: ProductImageMiniatureProps) => {
   const { product } = props;
   const router = useRouter();
+
+  const images = product.attributes.images?.data || [];
+
   return (
-    <div onClick={() => router.push(`/product/${product.slug}`)}>
-      {product.images && product.images.length > 0 && (
+    <div onClick={() => router.push(`/product/${product.attributes.slug}`)}>
+      {images.length > 0 && (
         <Image
-          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
+          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].attributes.url}`}
           alt="Producto"
           className="overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
           width={100}
