@@ -8,12 +8,7 @@ import {
 import { ProductType } from "@/types/productos";
 import Image from "next/image";
 
-interface CarouselProductProps {
-  images: {
-    id: number;
-    url: string;
-  }[];
-}
+
 
 export const CarouselProduct = (props: ProductType) => {
   const { attributes } = props;
