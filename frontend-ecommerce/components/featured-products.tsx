@@ -24,6 +24,10 @@ export const FeaturedProducts = () => {
   const router = useRouter();
   const { addItem } = useCart();
 
+
+  //console.log(result);
+  
+
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
       <h3 className="px-6 text-3xl sm:pb-8">Productos destacados</h3>
@@ -33,15 +37,14 @@ export const FeaturedProducts = () => {
 
           {result !== null &&
             result.map((product: ProductType) => {
-              const { id, productName, slug, images, taste, origin } = product;
+              const { attributes } = product;
 
               const imageUrl =
-                images?.[0]?.formats?.large?.url ?? images?.[0]?.url ?? "";
+                attributes.images.data[0].attributes.url;
 
-              // console.log(result);
               return (
                 <CarouselItem
-                  key={id}
+                  key={product.id}
                   className="md:basis-1/2 lg:basis-1/3 group"
                 >
                   <div className="p-1">
@@ -49,7 +52,7 @@ export const FeaturedProducts = () => {
                       <CardContent className="relative flex items-center justify-center ">
                         <Image
                           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`}
-                          alt={productName || "Producto destacado"}
+                          alt={attributes.productName || "Producto destacado"}
                           className="rounded-[10px]"
                           width={370}
                           height={370}
@@ -57,7 +60,7 @@ export const FeaturedProducts = () => {
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                           <div className="flex justify-center gap-x-6">
                             <IconButton
-                              onClick={() => router.push(`product/${slug}`)}
+                              onClick={() => router.push(`product/${attributes.slug}`)}
                               icon={<Expand size={20}></Expand>}
                               className="text-gray-600"
                             ></IconButton>
@@ -70,13 +73,13 @@ export const FeaturedProducts = () => {
                         </div>
                       </CardContent>
                       <div className="flex justify-between gap-4 px-8">
-                        <h3 className="text-lg font-bold">{productName}</h3>
+                        <h3 className="text-lg font-bold">{attributes.productName}</h3>
                         <div className="flex items-center justify-between gap-3">
                           <p className="px-2 py-1 text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-                            {taste}
+                            {attributes.taste}
                           </p>
                           <p className="px-2 py-1 text-white bg-yellow-900 rounded-full">
-                            {origin}
+                            {attributes.origin}
                           </p>
                         </div>
                       </div>
