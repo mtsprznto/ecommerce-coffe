@@ -33,16 +33,17 @@ export default function Page() {
       ? result
       : result.filter(
           (product: ProductType) =>
-            product.origin === filterOrigin && product.taste === filterTaste
+            product.attributes.origin === filterOrigin && product.attributes.taste === filterTaste
         ));
 
+  
   
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24 p-6">
       {result !== null && !loading && (
         <h1 className="text-3xl font-medium">
-          Cafe {result[0].category.categoryName}
+          Cafe {result[0].attributes.category.data.attributes.categoryName}
         </h1>
         
       )}

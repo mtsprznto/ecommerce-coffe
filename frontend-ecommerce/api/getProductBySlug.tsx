@@ -6,6 +6,8 @@ export function useGetProductBySlug(slug: string | string[]) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  //console.log(result)
+
   useEffect(() => {
     (async () => {
       try {
@@ -19,6 +21,8 @@ export function useGetProductBySlug(slug: string | string[]) {
       }
     })();
   }, [url]);
+
+  
 
   return { loading, result, error };
 }

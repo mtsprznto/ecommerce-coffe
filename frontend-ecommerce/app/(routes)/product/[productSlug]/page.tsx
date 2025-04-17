@@ -13,17 +13,18 @@ export default function Page() {
 
   const { result }: ResponseType = useGetProductBySlug(productSlug || "");
 
-  //console.log(`Result: ${result}`);
+  console.log("Result:",result);
 
   if (result == null) {
     return <SkeletonProduct></SkeletonProduct>;
   }
 
+
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-32 sm:px-24">
       <div className="grid sm:grid-cols-2">
         <div>
-          <CarouselProduct images={result[0].images}></CarouselProduct>
+          <CarouselProduct {... result[0]}></CarouselProduct>
         </div>
         <div className="sm:px-12">
           <InfoProduct product={result[0]}></InfoProduct>
