@@ -18,4 +18,4 @@ https://vercel.com/
 https://render.com/
 
 #### Base de datos
-https://railway.com/
+https://neon.tech/
