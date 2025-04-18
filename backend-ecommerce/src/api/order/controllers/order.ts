@@ -5,7 +5,7 @@
 // @ts-ignore
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
-const {createCoreController} = require("@strapi/strapi").factories
+const { createCoreController } = require("@strapi/strapi").factories
 
 
 
@@ -14,17 +14,17 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     async create(ctx) {
         //@ts-ignore
         const { products } = ctx.request.body;
-        
+
         try {
             
             const lineItems = await Promise.all(
-                
+
                 products.map(async (product) => {
-                    
+
 
                     const item = await strapi.service("api::product.product").findOne(product.id, {});
 
-                    
+
 
                     return {
                         price_data: {
@@ -55,8 +55,10 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             return { stripeSession: session }
 
         } catch (error) {
+            console.error("Error en la orden:", error);
             ctx.response.status = 500;
             ctx.body = { error: error.message };
+
         }
 
     },
