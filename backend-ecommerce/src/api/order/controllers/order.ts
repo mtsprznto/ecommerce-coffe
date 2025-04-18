@@ -16,14 +16,21 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         const { products } = ctx.request.body;
 
         try {
-            
+            if (!products || !Array.isArray(products)) {
+                throw new Error("Formato inválido: 'products' debe ser un array.");
+            }
+
             const lineItems = await Promise.all(
+
+
 
                 products.map(async (product) => {
 
-
                     const item = await strapi.service("api::product.product").findOne(product.id, {});
 
+                    if (!item) {
+                        throw new Error(`Producto con ID ${product.id} no encontrado en la base de datos.`);
+                    }
 
 
                     return {
@@ -55,9 +62,10 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             return { stripeSession: session }
 
         } catch (error) {
-            console.error("Error en la orden:", error);
+            console.error("Error en la API de órdenes:", error.stack || error.message);
             ctx.response.status = 500;
             ctx.body = { error: error.message };
+
 
         }
 
