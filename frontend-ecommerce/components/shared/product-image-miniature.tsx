@@ -9,8 +9,7 @@ interface ProductImageMiniatureProps {
 export const ProductImageMiniature = (props: ProductImageMiniatureProps) => {
   const { product } = props;
   const router = useRouter();
-
-  const images = product.attributes.images?.data || [];
+  const images = product.attributes.images.data || [];
 
   return (
     <div onClick={() => router.push(`/product/${product.attributes.slug}`)}>

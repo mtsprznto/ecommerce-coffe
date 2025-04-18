@@ -18,7 +18,7 @@ export default function Page() {
 
   
   
-  console.log("ITEMS",items);
+  //console.log("ITEMS",items);
   
 
   const buyStripe = async () => {
@@ -56,8 +56,8 @@ export default function Page() {
           </ul>
         </div>
         <div className="max-w-xl ">
-          <div className="p-6 rounded-lg bg-[#000000] text-white dark:bg-[#e6dcdc] dark:text-black">
-            <p className="mb-3 text-lg font-semibold">Order summary</p>
+          <div className="p-6 rounded-lg bg-[#070707de] text-white dark:bg-[#e6dcdc] dark:text-black">
+            <p className="mb-3 text-lg font-semibold">Resumen: </p>
             <Separator className=""></Separator>
             <div className="flex justify-between gap-5 my-4">
               <p>Precio Total</p>
