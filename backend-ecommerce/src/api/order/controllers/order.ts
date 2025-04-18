@@ -7,8 +7,6 @@ const stripe = require("stripe")(process.env.STRIPE_KEY)
 
 const {createCoreController} = require("@strapi/strapi").factories
 
-import { factories } from '@strapi/strapi'
-
 
 
 //export default factories.createCoreController('api::order.order');
@@ -24,7 +22,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 products.map(async (product) => {
                     
 
-                    const item = await strapi.service("api::product.product").findOne(product.documentId, {});
+                    const item = await strapi.service("api::product.product").findOne(product.id, {});
 
                     
 

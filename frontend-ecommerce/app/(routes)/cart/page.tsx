@@ -18,7 +18,7 @@ export default function Page() {
 
   
   
-  
+  console.log("ITEMS",items);
   
 
   const buyStripe = async () => {
@@ -28,7 +28,6 @@ export default function Page() {
       const res = await makePaymentRequest.post("/api/orders", {
         products: items
       })
-      
       
       await stripe?.redirectToCheckout({
         sessionId: res.data.stripeSession.id
